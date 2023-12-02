@@ -1,0 +1,53 @@
+//calculo de rfc
+//codigo hecho por ANGEL MENDEZ HERNANDEZ 
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	string nombre="";
+	string apellido_paterno="";
+	string apellido_materno="";
+	string dia=""; 
+	string mes=""; 
+	string anio="";
+	string vocal;
+	string RFC="";
+	cout<<"USA SOLO LETRAS MAYUSCULAS"<<endl;
+	 cout<<"por favor escribe tu nombre: ";
+	 cin>>nombre;
+	 cout<<"introduce tu apellido paterno: ";
+	 cin>>apellido_paterno;
+	 cout<<"itroduce tu apellido materno: ";
+	 cin>>apellido_materno;
+	 cout<<"INGRESA TU FECHA DE NACIMIENTO (SOLO NUMEROS)"<<endl;
+	 cout<<"ingresa tu dia de nacimiento: ";
+	 cin>>dia;
+	 cout<<"ingresa tu mes de nacimiento: ";
+	 cin>>mes;
+	 cout<<"ingresa el anio en el que naciste: ";
+	 cin>>anio;
+	 cout<<"tu nombre es: "<<nombre<<" "<<apellido_paterno<<" "<<apellido_materno<<endl;
+	 cout<<"tu fecha de nacimiento es: "<<dia<<" "<<mes<<" "<<anio<<endl;
+	 
+	 RFC= apellido_paterno.substr(0,1);
+	 
+	 for(int i=1; i<apellido_paterno.length();++i){
+	 	char letra =apellido_paterno[i];
+	 	if (letra == 'A' || letra == 'E'|| letra == 'I' || letra == 'O' || letra== 'U'){
+	 		vocal += letra;
+	 		break;
+		 }
+		 
+	 }
+	 RFC=RFC + vocal;
+	 RFC=RFC + apellido_materno.substr(0,1);
+	 RFC=RFC + nombre.substr(0,1);
+	 RFC=RFC + anio.substr(2,2);
+	 RFC=RFC+mes;
+	 RFC=RFC+dia;
+	 cout<<"Tu RFC sin homoclave es: "<<RFC<<endl;
+	
+	
+	return 0;
+}
